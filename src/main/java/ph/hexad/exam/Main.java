@@ -1,6 +1,5 @@
 package ph.hexad.exam;
 
-import com.sun.tools.corba.se.idl.constExpr.Or;
 import ph.hexad.exam.common.ProductType;
 import ph.hexad.exam.model.Order;
 import ph.hexad.exam.model.Package;
@@ -13,39 +12,42 @@ public class Main {
 
   public static void main(String[] args) {
 
-    String[] input = "15 VS5".split(" ");
+    String[] input = "14 MB11".split(" ");
 
     ProductType productType = ProductType.getProductBy(input[1]);
     System.out.println(productType.getCode());
 
-    //reverse sort by quantity
+
     Order order = new Order();
     int quantity = Integer.parseInt(input[0]);
     int ctr = 0;
 
     List<Package> packages = productType.getPacks();
 
-    int divisible = quantity % packages.get(ctr).getQuantity();
-    System.out.println(packages.get(ctr).getQuantity());
-    System.out.println(divisible);
-
+    int multiplier = 0;
     while (quantity != 0) {
       //process packaging of customer
-      List<Package> packags = productType.getPacks();
-
-      Package pack = packags.get(ctr);
+      Package pack = packages.get(ctr);
       int d = quantity % pack.getQuantity();
 
       if (d == 0) {
+        multiplier = quantity / pack.getQuantity();
+        System.out.println(multiplier);
+        quantity = quantity - (pack.getQuantity() * multiplier);
+        while (multiplier != 0) {
+          order.addPackage(pack);
+          multiplier--;
+        }
+      } else if (quantity >= pack.getQuantity()) {
         quantity = quantity - pack.getQuantity();
         order.addPackage(pack);
+      } else {
+        ctr++;
+        continue;
       }
-
-
     }
 
     System.out.println(order);
-
 
   }
 

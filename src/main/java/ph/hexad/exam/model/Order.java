@@ -21,4 +21,11 @@ public class Order {
   public void addPackage(Package pack) {
     packageList.add(pack);
   }
+
+  @Override
+  public String toString() {
+    return "Order{" +
+        "packageList=" + packageList +
+        '}';
+  }
 }
