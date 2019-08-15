@@ -15,5 +15,5 @@ Croissant           CF
 
 ### Testing (goto where the jar is)
 
-* java -jar bakery-1.0-SNAPSHOT.jar quantity productcode
-  - java -jar bakery-1.0-SNAPSHOT.jar 14 MB11
+when running the jar add the quantity and productcode after the jar
+* java -jar bakery-1.0-SNAPSHOT.jar 14 MB11
