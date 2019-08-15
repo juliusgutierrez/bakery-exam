@@ -1,5 +1,10 @@
 # bakery-exam
-a simple prepackaging order
+a simple prepackaging order, you may order based on product code given
+
+product             code  
+Vegemite Scroll     VS5
+Blueberry Muffin    MB11
+Croissant           CF
 
 ### Requirements
 * Java 8
