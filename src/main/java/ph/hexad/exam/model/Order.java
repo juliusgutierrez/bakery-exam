@@ -1,6 +1,6 @@
 package ph.hexad.exam.model;
 
-import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -8,24 +8,57 @@ import java.util.List;
  */
 public class Order {
 
-  private List<Package> packageList = new ArrayList<>();
+  private BigDecimal totalOrder;
+  private int quantity;
+  private String productCode;
+  private List<String> breakDownOrder;
 
-  public List<Package> getPackageList() {
-    return packageList;
+  public BigDecimal getTotalOrder() {
+    return totalOrder;
   }
 
-  public void setPackageList(List<Package> packageList) {
-    this.packageList = packageList;
+  public void setTotalOrder(BigDecimal totalOrder) {
+    this.totalOrder = totalOrder;
   }
 
-  public void addPackage(Package pack) {
-    packageList.add(pack);
+  public int getQuantity() {
+    return quantity;
+  }
+
+  public void setQuantity(int quantity) {
+    this.quantity = quantity;
+  }
+
+  public String getProductCode() {
+    return productCode;
+  }
+
+  public void setProductCode(String productCode) {
+    this.productCode = productCode;
+  }
+
+  public List<String> getBreakDownOrder() {
+    return breakDownOrder;
+  }
+
+  public void setBreakDownOrder(List<String> breakDownOrder) {
+    this.breakDownOrder = breakDownOrder;
   }
 
   @Override
   public String toString() {
-    return "Order{" +
-        "packageList=" + packageList +
-        '}';
+    final StringBuilder sb = new StringBuilder();
+    sb.append(quantity)
+        .append(" ")
+        .append(productCode)
+        .append(" $")
+        .append(totalOrder)
+        .append("\n\t");
+    breakDownOrder.forEach(str -> {
+      sb.append(str);
+      sb.append("\n\t");
+    });
+    return sb.toString();
+
   }
 }

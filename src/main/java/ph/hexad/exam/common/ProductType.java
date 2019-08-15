@@ -1,6 +1,6 @@
 package ph.hexad.exam.common;
 
-import ph.hexad.exam.model.Package;
+import ph.hexad.exam.model.Pack;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -16,33 +16,33 @@ public enum ProductType {
 
   VEGEMITE_SCROLL("VS5") {
     @Override
-    public List<Package> createPackages() {
-      List<Package> packages = new ArrayList<Package>();
-      packages.add(new Package(3, new BigDecimal("6.99")));
-      packages.add(new Package(5, new BigDecimal("8.99")));
-      return packages;
+    public List<Pack> createPackages() {
+      List<Pack> packs = new ArrayList<Pack>();
+      packs.add(new Pack(3, new BigDecimal("6.99")));
+      packs.add(new Pack(5, new BigDecimal("8.99")));
+      return packs;
     }
   },
 
   BLUE_BERRY_MUFFIN("MB11") {
     @Override
-    public List<Package> createPackages() {
-      List<Package> packages = new ArrayList<Package>();
-      packages.add(new Package(2, new BigDecimal("9.95")));
-      packages.add(new Package(5, new BigDecimal("16.95")));
-      packages.add(new Package(8, new BigDecimal("24.95")));
-      return packages;
+    public List<Pack> createPackages() {
+      List<Pack> packs = new ArrayList<Pack>();
+      packs.add(new Pack(2, new BigDecimal("9.95")));
+      packs.add(new Pack(5, new BigDecimal("16.95")));
+      packs.add(new Pack(8, new BigDecimal("24.95")));
+      return packs;
     }
   },
 
   CROISSANT("CF") {
     @Override
-    public List<Package> createPackages() {
-      List<Package> packages = new ArrayList<Package>();
-      packages.add(new Package(3, new BigDecimal("5.95")));
-      packages.add(new Package(5, new BigDecimal("9.95")));
-      packages.add(new Package(9, new BigDecimal("16.99")));
-      return packages;
+    public List<Pack> createPackages() {
+      List<Pack> packs = new ArrayList<Pack>();
+      packs.add(new Pack(3, new BigDecimal("5.95")));
+      packs.add(new Pack(5, new BigDecimal("9.95")));
+      packs.add(new Pack(9, new BigDecimal("16.99")));
+      return packs;
     }
   }
   ;
@@ -62,13 +62,13 @@ public enum ProductType {
     return code;
   }
 
-  public abstract List<Package> createPackages();
+  public abstract List<Pack> createPackages();
 
-  public List<Package> getPacks() {
-    List<Package> packages = createPackages();
+  public List<Pack> getPacks() {
+    List<Pack> packages = createPackages();
 
     //reverse sort by quantity
-    packages.sort((Package p1, Package p2) -> p2.getQuantity() - p1.getQuantity());
+    packages.sort((Pack p1, Pack p2) -> p2.getQuantity() - p1.getQuantity());
     return packages;
   }
 

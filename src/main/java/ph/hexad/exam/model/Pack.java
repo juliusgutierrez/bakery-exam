@@ -5,16 +5,16 @@ import java.math.BigDecimal;
 /**
  * Created by juliusgutierrez on 14/08/2019.
  */
-public class Package {
+public class Pack {
 
   private int quantity;
   private BigDecimal price;
 
   //no arg constructor
-  public Package() {
+  public Pack() {
   }
 
-  public Package(int quantity, BigDecimal price) {
+  public Pack(int quantity, BigDecimal price) {
     this.quantity = quantity;
     this.price = price;
   }
@@ -37,7 +37,7 @@ public class Package {
 
   @Override
   public String toString() {
-    return "Package{" +
+    return "Pack{" +
         "quantity=" + quantity +
         ", price=" + price +
         '}';
