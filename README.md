@@ -14,4 +14,6 @@ Croissant           CF
 * mvn clean package
 
 ### Testing (goto where the jar is)
-* java -jar bakery-1.0-SNAPSHOT.jar 14 MB11D
+
+* java -jar bakery-1.0-SNAPSHOT.jar quantity productcode
+  - java -jar bakery-1.0-SNAPSHOT.jar 14 MB11
